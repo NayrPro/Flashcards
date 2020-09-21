@@ -5,10 +5,11 @@ import App from './App';
 import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import wordReducer from './Store/wordReducer'
+import interfaceReducer from './Store/interfaceReducer'
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
-  wordReducer
+  interfaceReducer, wordReducer
 })
 
 const store = createStore(rootReducer)

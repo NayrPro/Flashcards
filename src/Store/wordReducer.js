@@ -7,7 +7,8 @@ const INITIAL_STATE = {
     vocab: todosData,
     languageSelect: "",
     languageInput: "",
-    menu: "on"
+    menu: "on", 
+    score: 0
 }
 
 function wordReducer(state = INITIAL_STATE, action) {
@@ -46,6 +47,11 @@ function wordReducer(state = INITIAL_STATE, action) {
             return{
                 ...state,
                 menu : action.payload
+            }
+        case "SCORE":
+            return{
+                ...state,
+                score : action.payload
             }
         default : return state
     }
