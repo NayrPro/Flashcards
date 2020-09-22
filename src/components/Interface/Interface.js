@@ -1,11 +1,20 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux"
+import { string, number } from 'yup';
 
 export default function Interface() {
 
     const {motherLanguage, foreignLanguage, wordsNumber, showModalList} = useSelector(state => ({...state.interfaceReducer}))
 
     const dispatch = useDispatch()
+
+    let yup = require('yup');
+
+    let schema = yup.object().shape({
+        motherLanguage: yup.string().required(),
+        foreignLanguage: yup.string().required(),
+        wordsNumber: yup.number().required().positive().integer(),
+      });
 
     return (
         <div>
@@ -21,7 +30,7 @@ export default function Interface() {
             
             <label htmlFor="wordsNumber">Number of words to add: </label>
             <br/><br/>
-            <input type="text" name="wordsNumber" onChange={(e) => dispatch({type: "NUMBER", payload: e.target.value})} value={wordsNumber}/>
+            <input type="number" name="wordsNumber" onChange={(e) => dispatch({type: "NUMBER", payload: e.target.value})} value={wordsNumber}/>
             <br/><br/>
             
             <button onClick={() => dispatch({type: "MODAL", payload: !showModalList})}>Validate</button>
