@@ -1,9 +1,12 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import todosData from '../todosData'
+import todosData from './vocabArray'
 
 export default function Menu() {
     const {vocab, score} = useSelector(state => ({...state.wordReducer}))
+
+    const {motherLanguage, foreignLanguage} = useSelector(state => ({...state.interfaceReducer}))
+
 
     const dispatch = useDispatch()
     
@@ -27,13 +30,13 @@ export default function Menu() {
     return (
         <div>
             {vocab.length > 0 ? <h1>Language :</h1> : scoreMessage()}
-            <button onClick={(e) => language(e, "français")} id="shikomori">
-                Shikomori
+            <button onClick={(e) => language(e, motherLanguage)} id={foreignLanguage}>
+                {foreignLanguage}
             </button>
             <br />
             <br />
-            <button onClick={(e) => language(e, "shikomori")} id="français">
-                Français
+            <button onClick={(e) => language(e, foreignLanguage)} id={motherLanguage}>
+                {motherLanguage}
             </button>
       </div>
     )

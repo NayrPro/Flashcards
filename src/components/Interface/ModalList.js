@@ -1,23 +1,21 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import Test from '../Test'
 
 export default function ModalList() {
     
     const {wordsNumber, vocabDatas, motherLanguage, foreignLanguage} = useSelector(state => ({...state.interfaceReducer}))
 
     const dispatch = useDispatch()
-    
+
     useEffect(() => {
         const array = vocabDatas
         for (let index = 0; index < wordsNumber; index++) {
             array.push({id: index, [motherLanguage]: "", [foreignLanguage]: ""})
         }    
         dispatch({type: "DATA", payload: array})
+        // eslint-disable-next-line
     }, [])
-
-    useEffect(() => {
-        console.log("vocabDatas", vocabDatas);
-    }, [vocabDatas])
 
     function updateVocab(id,language,value) {
         const array = vocabDatas.map(elt => {
@@ -43,7 +41,10 @@ export default function ModalList() {
 
     return (
         <div>
-          {vocabForm}
+          {vocab.length > 0 ? <Test/> :
+          vocabForm}{/*A finir*/}
+          <br/><br/>           
+          <button onClick={() => dispatch({type: "VOCAB", payload: vocabDatas})}>Save</button>
         </div>
     )
 }

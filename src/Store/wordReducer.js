@@ -1,10 +1,10 @@
-import todosData from '../todosData'
+// import vocabArray from '../components/vocabArray'
 
 const INITIAL_STATE = {
     word: "",
     wordInput: "",
     wordMatch: "",
-    vocab: todosData,
+    vocab: [],
     languageSelect: "",
     languageInput: "",
     menu: "on", 
