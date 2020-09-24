@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import Test from '../Test'
 
 export default function ModalList() {
     
     const {wordsNumber, vocabDatas, motherLanguage, foreignLanguage} = useSelector(state => ({...state.interfaceReducer}))
+
+    const [showTest, setShowTest] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -40,11 +42,20 @@ export default function ModalList() {
     ))
 
     return (
-        <div>
-          {vocab.length > 0 ? <Test/> :
-          vocabForm}{/*A finir*/}
-          <br/><br/>           
-          <button onClick={() => dispatch({type: "VOCAB", payload: vocabDatas})}>Save</button>
-        </div>
+        <React.Fragment>
+        {
+            showTest === true ?
+            <Test/>
+            :
+            <div>
+                {vocabForm}
+                <br/><br/>           
+                <button onClick={() => {
+                    dispatch({type: "VOCAB", payload: vocabDatas});
+                    setShowTest(true)
+                }}>Save</button>
+            </div>
+        }
+        </React.Fragment>
     )
 }

@@ -9,18 +9,11 @@ function App() {
   const {showModalList} = useSelector(state=>({...state.interfaceReducer}))
   const {vocab} = useSelector(state=>({...state.wordReducer}))
 
-  
-
- useEffect(() => {
- }, [showModalList])
-
   useEffect(() => {
     console.log(vocab);
   }, [vocab])
 
   return (
-      /* <Test/> */
-      /* <Home/> */
       showModalList === true ? <ModalList/> :  <Interface/>
   );
 }
