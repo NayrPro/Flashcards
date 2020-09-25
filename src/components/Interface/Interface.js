@@ -1,27 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux"
-import { string, number } from 'yup';
 
 export default function Interface() {
 
     const {motherLanguage, foreignLanguage, wordsNumber, showModalList} = useSelector(state => ({...state.interfaceReducer}))
 
-    
-
     const dispatch = useDispatch()
 
-    const [disable, setDisable] = useState(true)
-
-    let yup = require('yup');
-
-    let schema = yup.object().shape({
-        motherLanguage: yup.string().required(),
-        foreignLanguage: yup.string().required(),
-        wordsNumber: yup.number().required().positive().integer(),
-      });
+    const [disabled, setDisabled] = useState(true)
 
     useEffect(() => {
-        motherLanguage !== "" && foreignLanguage !== "" && wordsNumber > 0 ? setDisable(false) : setDisable(true)
+        motherLanguage !== "" && foreignLanguage !== "" && wordsNumber > 0 ? setDisabled(false) : setDisabled(true)
     }, [motherLanguage, foreignLanguage, wordsNumber])  
 
     return (
@@ -41,7 +30,7 @@ export default function Interface() {
             <input type="number" name="wordsNumber" onChange={(e) => dispatch({type: "NUMBER", payload: e.target.value})} value={wordsNumber}/>
             <br/><br/>
             
-            <button disabled={disable} onClick={() => dispatch({type: "MODAL", payload: !showModalList})}>Validate</button>
+            <button disabled={disabled} onClick={() => dispatch({type: "MODAL", payload: !showModalList})}>Validate</button>
         </div>
     )
 }

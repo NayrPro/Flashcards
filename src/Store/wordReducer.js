@@ -1,5 +1,3 @@
-// import vocabArray from '../components/vocabArray'
-
 const INITIAL_STATE = {
     word: "",
     wordInput: "",

@@ -2,10 +2,10 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 export default function Menu() {
+
     const {vocab, score} = useSelector(state => ({...state.wordReducer}))
 
     const {motherLanguage, foreignLanguage} = useSelector(state => ({...state.interfaceReducer}))
-
     
     const {vocabDatas} = useSelector(state => ({...state.interfaceReducer}))
 
