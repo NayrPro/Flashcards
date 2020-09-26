@@ -22,23 +22,24 @@ export default function Menu() {
     function scoreMessage(){
         return(
             <React.Fragment>
-                <h1>The End</h1>
-                <p>You score is {score}/{vocabDatas.length}</p>
+                <h2 className="text-center mb-4">You score is {score}/{vocabDatas.length}</h2>
+                <h2 className="mb-4">Continue?</h2>
             </React.Fragment>
         ) 
     }
 
     return (
-        <div>
-            {vocab.length > 0 ? <h1>Language :</h1> : scoreMessage()}
-            <button onClick={(e) => {language(e, motherLanguage)}} id={foreignLanguage}>
-                {foreignLanguage}
-            </button>
-            <br />
-            <br />
-            <button onClick={(e) => {language(e, foreignLanguage)}} id={motherLanguage}>
-                {motherLanguage}
-            </button>
+        <div className="card interface">
+            {vocab.length > 0 ? <h2 className="text-center mb-4">Choose a language to be test on :</h2> : scoreMessage()}
+            <input className="mb-4" type="button" onClick={(e) => {language(e, motherLanguage)}} id={foreignLanguage}
+                 value={foreignLanguage}/>
+
+            <input className="mb-4" type="button" onClick={(e) => {language(e, foreignLanguage)}} id={motherLanguage}
+                 value={motherLanguage}/>
+
+            <input className="mb-4" type="button" onClick={() => window.location.reload()} id={motherLanguage}
+                 value="Reset"/>
+            
       </div>
     )
 }

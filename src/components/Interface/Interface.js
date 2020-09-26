@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux"
+import './Interface.css'
 
 export default function Interface() {
 
@@ -14,23 +15,24 @@ export default function Interface() {
     }, [motherLanguage, foreignLanguage, wordsNumber])  
 
     return (
-        <div>
-            <h1>Options: </h1><br/>
+        <div className="card border-primary text-center interface">
+            <h2 className="d-block mb-4">Create your flashcard set: </h2>
             
-            <label htmlFor="motherLanguage">Mother language</label><br/>
-            <input name="motherLanguage" onChange={(e)=> dispatch({type: "MOTHER", payload: e.target.value})} type="text" value={motherLanguage}/>
-            <br/><br/>
-            
-            <label htmlFor="foreignLanguage">Foreign language</label><br/>
-            <input name="foreignLanguage" onChange={(e)=> dispatch({type: "FOREIGN", payload: e.target.value})} type="text" value={foreignLanguage}/>
-            <br/><br/>
-            
-            <label htmlFor="wordsNumber">Number of words to add: </label>
-            <br/><br/>
-            <input type="number" name="wordsNumber" onChange={(e) => dispatch({type: "NUMBER", payload: e.target.value})} value={wordsNumber}/>
-            <br/><br/>
-            
-            <button disabled={disabled} onClick={() => dispatch({type: "MODAL", payload: !showModalList})}>Validate</button>
+            <div className="form-group">
+                <div className="form-group">    
+                    <label htmlFor="motherLanguage">Mother language:</label>
+                    <input name="motherLanguage" onChange={(e)=> dispatch({type: "MOTHER", payload: e.target.value})} type="text" value={motherLanguage}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="foreignLanguage">Foreign language:</label>
+                    <input name="foreignLanguage" onChange={(e)=> dispatch({type: "FOREIGN", payload: e.target.value})} type="text" value={foreignLanguage}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="wordsNumber">Number of words to add: </label>
+                    <input type="number" name="wordsNumber" onChange={(e) => dispatch({type: "NUMBER", payload: e.target.value})} value={wordsNumber}/>
+                </div>
+            </div>
+                <input className="btn btn-primary" type="button" disabled={disabled} onClick={() => dispatch({type: "MODAL", payload: !showModalList})}value="Validate"/>
         </div>
     )
 }
