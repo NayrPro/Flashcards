@@ -16,7 +16,7 @@ export default function Interface() {
 
     return (
         <div className="card border-primary text-center interface">
-            <h2 className="d-block mb-4">Create your flashcard set: </h2>
+            <h2 className="d-block mb-4">Create your vocabulary list: </h2>
             
             <div className="form-group">
                 <div className="form-group">    

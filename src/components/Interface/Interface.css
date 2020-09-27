@@ -8,22 +8,12 @@
 }
 
 .modal-list{
-    /* top: 10%;
-    left: 50%;
-    transform: translate(-10%,-50%); */
     width: 40%;
     padding: 3rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
 }
 
-/* h2{
-    margin-bottom: 1rem;
-} */
-/* 
-.options, h2{
-    margin-bottom: 1rem;
-} */
 input{
     width: 100%;
 }

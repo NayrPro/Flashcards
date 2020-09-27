@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import Test from '../Test'
+import Test from '../VocabTest/Test'
 
 export default function ModalList() {
     
@@ -27,7 +27,7 @@ export default function ModalList() {
     function updateVocab(id,language,value) {
         const array = vocabDatas.map(elt => {
             if(elt.id === id){
-                elt[language] = value  
+                elt[language] = value
             }
             return elt 
         })
