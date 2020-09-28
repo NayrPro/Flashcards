@@ -14,6 +14,13 @@
     margin-top: 2rem;
 }
 
+.interface>.interface{
+    width: 80%;
+    height: 100%;
+    overflow : scroll;
+}
+    
+
 input{
     width: 100%;
 }

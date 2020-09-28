@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 export default function Menu() {
@@ -12,10 +12,6 @@ export default function Menu() {
     const dispatch = useDispatch()
 
     const [showList, setShowList] = useState(false)
-
-    useEffect(() => {
-        console.log(vocabDatas, showList)
-    }, [])
     
     function language(event, languageInput) {
         vocab.length === 0 && dispatch({type:"VOCAB", payload:vocabDatas})
@@ -45,11 +41,12 @@ export default function Menu() {
         <div className="card interface">
             {showList === true && 
                 <div className="card interface" style={{position: "absolute"}}>
-                    <table>
+                    <h2 class="text-center mb-4">Vocabulary List</h2>
+                    <table className="table table-bordered">
 	                    <thead>
 	                    	<tr>
-	                    		<th>{motherLanguage}</th>
-	                    		<th>{foreignLanguage}</th>
+	                    		<th scope="col">{motherLanguage}</th>
+	                    		<th scope="col">{foreignLanguage}</th>
 	                    	</tr>
 	                    </thead>
 	                    <tbody>
