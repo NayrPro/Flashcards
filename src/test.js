@@ -1,7 +1,13 @@
-const url = require('url');
+const http = require('http');
+const path = require("path");
+const fs = require("fs")
 
-const myUrl = new URL('http://mywebsite.com/hello.html?id=100&status=active');
+const server =  http.createServer((req, res) =>{
+    if(req.url === "/"){
+        res.end('<h1>Home</h1>')
+    }
+});
 
-// Serialized URL
-console.log(myUrl.href);
-console.log(myUrl.toString());
+const PORT = 5000 || process.env.PORT ;
+
+server.listen(PORT, () => console.log("Server Running on port: ", PORT));
